@@ -9,6 +9,7 @@
         <th>Nombre</th>
         <th>Código</th>
         <th>Email</th>
+        <th colspan="3"></th>
       </tr>
       <% for student in @students %>
         <tr>
@@ -25,3 +26,41 @@
     <p><%= link_to "Agregar nuevo estudiante", new_student_path %></p>
   <% end %>
 </end>
+
+<h1>Actividades de la materia</h1>
+  <% if Activity.all.empty? %>
+    No hay ninguna actividad todavía. <%= link_to "Agregar la primera actividad", new_activity_path %>.
+  <% else %>
+    <table>
+      <tr>
+        <th>Fecha</th>
+        <th>Nombre</th>
+        <th>Porcentaje</th>
+        <th colspan="2"></th>
+      </tr>
+      <% for activity in Activity.all %>
+        <tr>
+          <td><%= l activity.date, :format => :long %></td>
+          <td><%= activity.name %></td>
+          <td><%= activity.percentage %>%</td>
+          <td><%= link_to "Editar", edit_activity_path(activity) %></td>
+          <td><%= link_to "Suprimir", activity, :confirm => '¿Estás seguro?', :method => :delete %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><b><%= percentage_sum %><b></td>
+        <td colspan="2">
+        </td>
+      </tr>
+    </table>
+
+    <div>
+      <% if Activity.sum(:percentage) != 100 %>
+        <b>Nota</b>: No se ha ingresado el 100% de las actividades.
+      <% end %>
+    </div>
+
+    <p><%= link_to "Agregar nueva actividad", new_activity_path %></p>
+  <% end %>

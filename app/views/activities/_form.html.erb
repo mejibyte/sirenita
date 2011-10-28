@@ -1,0 +1,16 @@
+<%= form_for @activity do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :percentage %><br />
+    <%= f.number_field :percentage %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

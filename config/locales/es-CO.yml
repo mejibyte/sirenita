@@ -223,10 +223,15 @@ es-CO:
   activerecord:
     models:
       student: Estudiante
+      activity: Actividad
     attributes:
       student:
         name: "Nombre"
         code: "Código"
+      activity:
+        name: "Nombre"
+        date: "Fecha"
+        percentage: "Porcentaje"
         
 
   helpers:
@@ -234,3 +239,7 @@ es-CO:
       student:
         name: "Nombre"
         code: "Código"
+      activity:
+        name: "Nombre"
+        date: "Fecha"
+        percentage: "Porcentaje"
