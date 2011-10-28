@@ -1,2 +1,3 @@
 $("td.grade.activity_<%= @grade.activity_id %>.student_<%= @grade.student_id %>").html("<%= escape_javascript render("grade", :grade => @grade) %>");
 $(".weighted_average").html("<%= escape_javascript @grade.student.weighted_average.to_s %>");
+$(".graded_percentage").html("<%= escape_javascript @grade.student.graded_percentage.to_s %>%");
