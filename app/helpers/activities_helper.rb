@@ -1,6 +1,9 @@
 module ActivitiesHelper
+  def format_percentage(p)
+    content_tag(:span, "#{p}%", :class => (p == 100 ? "green" : "red"))
+  end
+  
   def percentage_sum
-    sum = Activity.sum(:percentage)
-    content_tag(:span, "#{sum}%", :class => (sum == 100 ? "green" : "red"))
+    format_percentage(Activity.sum(:percentage))
   end
 end

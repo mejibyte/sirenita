@@ -1,11 +1,7 @@
-<% title "Student" %>
+<% title @student.name %>
 
 <p>
-  <strong>Name:</strong>
-  <%= @student.name %>
-</p>
-<p>
-  <strong>Code:</strong>
+  <strong>Código:</strong>
   <%= @student.code %>
 </p>
 <p>
@@ -13,8 +9,30 @@
   <%= @student.email %>
 </p>
 
+<h2>Calificaciones</h2>
+
 <p>
-  <%= link_to "Edit", edit_student_path(@student) %> |
-  <%= link_to "Destroy", @student, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", students_path %>
+  Haz doble click en alguna celda para modificar la calificación de <%= @student.first_name %> en esa actividad.
+</p>
+
+<table class="single_student_grades">
+  <tr>
+    <th>Actividad</th>
+    <th>Porcentaje</th>
+    <th>Calificación</th>
+  </tr>
+  
+  <% Activity.all.each do |activity| %>
+    <tr>
+      <td><%= activity.name %></td>
+      <td><%= activity.percentage %>%</td>
+      <td class="grade">-</td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to "Editar datos básicos", edit_student_path(@student) %> |
+  <%= link_to "Suprimir", @student, :confirm => '¿Estás seguro?', :method => :delete %> |
+  <%= link_to "Volver a la lista de estudiantes", students_path %>
 </p>

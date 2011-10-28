@@ -9,6 +9,7 @@
         <th>Nombre</th>
         <th>Código</th>
         <th>Email</th>
+        <th>Porcentaje evaluado</th>
         <th colspan="3"></th>
       </tr>
       <% for student in @students %>
@@ -16,6 +17,7 @@
           <td><%= student.name %></td>
           <td><%= student.code %></td>
           <td><%= student.email %></td>
+          <td><b><%= format_percentage student.evaluated_percentage %></b></td>
           <td><%= link_to "Detalle", student %></td>
           <td><%= link_to "Editar", edit_student_path(student) %></td>
           <td><%= link_to "Suprimir", student, :confirm => '¿Estás seguro?', :method => :delete %></td>
