@@ -10,6 +10,7 @@
         <th>Código</th>
         <th>Email</th>
         <th>Porcentaje evaluado</th>
+        <th>Promedio actual</th>
         <th colspan="2"></th>
       </tr>
       <% for student in @students %>
@@ -18,6 +19,7 @@
           <td><%= student.code %></td>
           <td><%= student.email %></td>
           <td><b><%= format_percentage student.evaluated_percentage %></b></td>
+          <td><b><%= student.weighted_average %></b></td>
           <td><%= link_to "Detalle", student %></td>
           <td><%= link_to "Suprimir", student, :confirm => '¿Estás seguro?', :method => :delete %></td>
         </tr>

@@ -27,14 +27,4 @@ class Student < ActiveRecord::Base
     end
     answer.round(2)
   end
-  
-  def graded_percentage
-    present_grades = grades.select { |g| g.grade.present? }
-    return "-" if present_grades.empty?
-    answer = 0
-    present_grades.each do |grade|
-      answer += grade.activity.percentage
-    end
-    answer
-  end
 end

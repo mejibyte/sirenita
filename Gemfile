@@ -7,6 +7,7 @@ gem 'rails', '3.1.1'
 
 gem 'nifty-generators'
 gem 'pg'
+gem 'rails-i18n'
 
 # Gems used only for assets and not required
 # in production environments by default.
