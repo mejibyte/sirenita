@@ -12,7 +12,7 @@
 <h2>Calificaciones</h2>
 
 <p>
-  Haz doble click en alguna celda para modificar la calificación de <%= @student.first_name %> en esa actividad.
+  Haz click en alguna celda para modificar la calificación de <%= @student.first_name %> en esa actividad.
 </p>
 
 <table class="single_student_grades">
@@ -26,9 +26,16 @@
     <tr>
       <td><%= activity.name %></td>
       <td><%= activity.percentage %>%</td>
-      <td class="grade">-</td>
+      <td class="grade activity_<%= activity.id %> student_<%= @student.id %>">
+        <%= render "grades/grade", :grade => @student.grade_for(activity) %>
+      </td>
     </tr>
   <% end %>
+  <tr>
+      <td></td>
+      <td></td>
+      <td class="weighted_average"><%= @student.weighted_average %></td>
+  </tr>
 </table>
 
 <p>

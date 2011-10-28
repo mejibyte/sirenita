@@ -4,3 +4,30 @@
   -webkit-user-select: none;
   user-select: none;
 }
+
+td.grade {
+  a {
+    color: #006;
+    display: block;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  input {
+    float: left;
+  }
+  
+  a.cancel {
+    float: right;
+    color: #777;
+    &:hover {
+      text-decoration: underline;
+    };
+    line-height: 25px;
+  }
+}
+
+.weighted_average {
+  font-weight: bold;
+}

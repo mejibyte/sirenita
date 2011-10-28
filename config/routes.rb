@@ -1,8 +1,7 @@
 Poc::Application.routes.draw do
   resources :activities
-
   resources :students
-
+  resources :grades
   root :to => "students#index"
 
   # The priority is based upon order of creation:

@@ -7,10 +7,24 @@ class Student < ActiveRecord::Base
   has_many :grades, :dependent => :destroy
   
   def evaluated_percentage
-    grades.includes(:activities).map(&:activity).inject(0) { |sum, activity| sum + activity.percentage }
+    grades.select { |g| g.grade.present? }.map(&:activity).inject(0) { |sum, activity| sum + activity.percentage }
   end
   
   def first_name
     name.split.first
+  end
+  
+  def grade_for(some_activity)
+    grades.where(:activity_id => some_activity).first || Grade.new(:student_id => self, :activity_id => some_activity.id)
+  end
+  
+  def weighted_average
+    present_grades = grades.select { |g| g.grade.present? }
+    return "-" if present_grades.empty?
+    answer = 0.0
+    present_grades.each do |grade|
+      answer += grade.grade * grade.activity.percentage / 100.0
+    end
+    answer.round(2)
   end
 end

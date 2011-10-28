@@ -1,0 +1,5 @@
+<%= form_for @grade, :url => grade_path(:id => @grade.activity_id, :student_id => @grade.student_id), :method => :put, :remote => true do |f| %>
+  <%= f.text_field :grade, :size => 5 %>
+  <%= f.submit "OK" %>
+  <%= link_to "Cancelar", grade_path(:id => @grade.activity_id, :student_id => @grade.student_id), :remote => true, :class => "cancel" %>
+<% end %>
