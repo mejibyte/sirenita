@@ -1,0 +1,27 @@
+<% title "Estudiantes" %>
+
+<div class="center">
+  <% if @students.empty? %>
+    No hay ningún estudiante todavía. <%= link_to "Agregar un estudiante", new_student_path %>.
+  <% else %>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Código</th>
+        <th>Email</th>
+      </tr>
+      <% for student in @students %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.code %></td>
+          <td><%= student.email %></td>
+          <td><%= link_to "Detalle", student %></td>
+          <td><%= link_to "Editar", edit_student_path(student) %></td>
+          <td><%= link_to "Suprimir", student, :confirm => '¿Estás seguro?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <p><%= link_to "Agregar nuevo estudiante", new_student_path %></p>
+  <% end %>
+</end>
