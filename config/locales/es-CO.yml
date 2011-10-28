@@ -224,6 +224,7 @@ es-CO:
     models:
       student: Estudiante
       activity: Actividad
+      grade: Calificación
     attributes:
       student:
         name: "Nombre"
@@ -232,7 +233,9 @@ es-CO:
         name: "Nombre"
         date: "Fecha"
         percentage: "Porcentaje"
-        
+      grade:
+        grade: "Calificación"
+
 
   helpers:
     label:
@@ -243,3 +246,5 @@ es-CO:
         name: "Nombre"
         date: "Fecha"
         percentage: "Porcentaje"
+      grade:
+        grade: "Calificación"
