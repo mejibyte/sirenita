@@ -15,7 +15,7 @@ class Student < ActiveRecord::Base
   end
   
   def grade_for(some_activity)
-    grades.where(:activity_id => some_activity).first || Grade.new(:student_id => self, :activity_id => some_activity.id)
+    grades.where(:activity_id => some_activity.id).first || Grade.new(:student_id => self.id, :activity_id => some_activity.id)
   end
   
   def weighted_average
